@@ -147,8 +147,8 @@ pip --version
 pip3 --version
 
 echo_stamp "Installing packages"
-pip install numpy pyzmq pyzbar tensorflow imagezmq
-pip3 install numpy pyzmq pyzbar tensorflow imagezmq
+pip install numpy pyzmq pyzbar imagezmq
+pip3 install numpy pyzmq pyzbar imagezmq
 echo_stamp "Installed pyzmq" "SUCCESS"
 
 echo_stamp "Downloading setuptools"
