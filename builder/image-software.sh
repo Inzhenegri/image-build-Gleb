@@ -124,8 +124,8 @@ ntpdate \
 python-dev \
 python3-dev \
 python-systemd \
-mjpg-streamer
 python3-opencv
+# mjpg-streamer
 
 # Deny byobu to check available updates
 sed -i "s/updates_available//" /usr/share/byobu/status/status
@@ -146,10 +146,18 @@ echo_stamp "Make sure both pip and pip3 are installed"
 pip --version
 pip3 --version
 
+# echo_stamp "ffmpeg installation"
+# apt install ffmpeg -y
+# echo_stamp "ffmpeg installation done" "SUCCESS"
+
 echo_stamp "Installing packages"
-pip install numpy pyzmq pyzbar imagezmq
-pip3 install numpy pyzmq pyzbar imagezmq
+pip3 install numpy pyzmq pyzbar imagezmq imutils #aiortc uvloop vidgear
 echo_stamp "Installed pyzmq" "SUCCESS"
+
+echo_stamp "Getting picamera using wget"
+wget https://archive.raspberrypi.org/debian/pool/main/p/picamera/python3-picamera_1.13_armhf.deb
+dpkg -i python3-picamera_1.13_armhf.deb
+echo_stamp "picamera done"
 
 echo_stamp "Downloading setuptools"
 pip3 install --upgrade setuptools
